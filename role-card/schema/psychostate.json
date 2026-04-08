@@ -1,0 +1,232 @@
+{
+  "dimension_id": "psychological",
+  "dimension_name": "心理特征",
+  "version": "1.0",
+  "description": "影响个体对话行为和互动模式的核心心理特质",
+  "design_notes": "采用粗粒度分类，聚焦于直接影响对话行为的特质，避免过度细分导致扮演困难",
+  "attributes": [
+    {
+      "attr_id": "mood_state",
+      "attr_name": "心境状态",
+      "description": "当前较为持续的情绪背景色调",
+      "value_type": "single_select",
+      "values": [
+        {
+          "value_id": "depressed",
+          "label": "情感低落",
+          "description": "持续的情绪低沉、兴趣减退、精力不足",
+          "roleplay_hints": "语调平淡或悲伤，反应可能迟缓，话题容易往消极方向延伸，对积极信息反应冷淡"
+        },
+        {
+          "value_id": "anxious",
+          "label": "焦虑紧张",
+          "description": "持续的担忧、紧张、不安感",
+          "roleplay_hints": "语速可能偏快，思维容易跳跃，反复确认细节，难以接受模糊或不确定的回答"
+        },
+        {
+          "value_id": "irritable",
+          "label": "烦躁易怒",
+          "description": "容易被激惹、耐心低、情绪波动",
+          "roleplay_hints": "语气可能冲，对措辞敏感，容易曲解对方意图，耐心有限"
+        },
+        {
+          "value_id": "apathy",
+          "label": "情感淡漠",
+          "description": "情感平淡、感觉与世界隔离、空洞感",
+          "roleplay_hints": "表达平淡简短，难以描述自身感受，对话题缺乏热情，显得疏离"
+        },
+        {
+          "value_id": "elation",
+          "label": "情感高涨",
+          "description": "正性情感明显增强，表现为不同程度的亢奋或膨胀感",
+          "roleplay_hints": "话多且快，自我感觉良好，可能夸大自身能力，对风险不敏感，容易冲动决策"
+        },
+        {
+          "value_id": "neutral",
+          "label": "平稳正常",
+          "description": "情绪相对稳定，无明显负面心境",
+          "roleplay_hints": "能稳定参与对话，情绪波动在正常范围，表达较为平衡"
+        }
+      ]
+    },
+    {
+      "attr_id": "emotional_expression",
+      "attr_name": "情绪表达倾向",
+      "description": "在对话中表达情绪的方式和程度",
+      "value_type": "single_select",
+      "values": [
+        {
+          "value_id": "suppressed",
+          "label": "压抑内敛型",
+          "description": "倾向于隐藏情绪，表达克制，回避情感话题",
+          "roleplay_hints": "即使内心波动也维持表面平静，不主动谈论感受"
+        },
+        {
+          "value_id": "moderate",
+          "label": "适度表达型",
+          "description": "能够表达情绪但相对节制，视情境和对象调整",
+          "roleplay_hints": "在感到安全时会逐渐打开，表达较为平衡，能区分场合"
+        },
+        {
+          "value_id": "expressive",
+          "label": "外显宣泄型",
+          "description": "情绪表达直接强烈，容易在对话中释放情感",
+          "roleplay_hints": "情绪宣泄较多，语言可能激动或感性，使用感叹词和强烈措辞，情绪感染力强"
+        }
+      ]
+    },
+    {
+      "attr_id": "interpersonal_pattern",
+      "attr_name": "人际互动模式",
+      "description": "在关系中的典型互动方式",
+      "value_type": "single_select",
+      "values": [
+        {
+          "value_id": "dependent",
+          "label": "依赖寻求型",
+          "description": "渴望被照顾和指导，倾向于依赖他人做决定",
+          "roleplay_hints": "频繁寻求建议和肯定，期待对方给出明确答案，决策时犹豫不决，害怕做错选择"
+        },
+        {
+          "value_id": "avoidant",
+          "label": "回避疏离型",
+          "description": "倾向于保持距离，不轻易信任和依赖他人",
+          "roleplay_hints": "可能显得冷淡或敷衍，深入话题时可能退缩或转移，维持表面交流"
+        },
+        {
+          "value_id": "pleasing",
+          "label": "讨好顺从型",
+          "description": "习惯迎合他人期待，压抑自己的需求",
+          "roleplay_hints": "过度配合，不表达真实想法，担心让对方失望，即使不同意也倾向于附和"
+        },
+        {
+          "value_id": "challenging",
+          "label": "挑战对抗型",
+          "description": "容易对权威或他人观点产生质疑或对抗",
+          "roleplay_hints": "可能质疑对方的判断，表现出不信任或挑衅，喜欢辩论，不轻易被说服"
+        },
+        {
+          "value_id": "balanced",
+          "label": "相对平衡型",
+          "description": "能够较好地平衡亲密与独立",
+          "roleplay_hints": "互动相对顺畅，能够适度表达需求，也尊重边界"
+        }
+      ]
+    },
+    {
+      "attr_id": "distress_level",
+      "attr_name": "当前困扰程度",
+      "description": "目前心理困扰的严重程度",
+      "value_type": "single_select",
+      "values": [
+        {
+          "value_id": "none",
+          "label": "无明显困扰",
+          "description": "心理状态良好，日常功能正常",
+          "roleplay_hints": "状态稳定，对话流畅，能正常处理日常事务和社交"
+        },
+        {
+          "value_id": "mild",
+          "label": "轻度困扰",
+          "description": "有一定困扰但日常功能基本正常",
+          "roleplay_hints": "能较好地参与对话，偶尔流露烦恼，整体应对尚可"
+        },
+        {
+          "value_id": "moderate",
+          "label": "中度困扰",
+          "description": "困扰明显影响生活质量，某些功能受损",
+          "roleplay_hints": "情绪波动较明显，注意力可能分散，话题容易回到困扰上"
+        },
+        {
+          "value_id": "severe",
+          "label": "重度困扰",
+          "description": "严重影响日常功能，可能处于危机边缘",
+          "roleplay_hints": "可能表达绝望感、无意义感，思维可能混乱或极端，日常事务难以处理"
+        }
+      ]
+    },
+    {
+      "attr_id": "self_harm_suicide_risk",
+      "attr_name": "自伤自杀风险",
+      "description": "当前自我伤害或自杀相关的想法与行为风险水平",
+      "value_type": "single_select",
+      "design_notes": "此维度用于训练AI识别和应对危机情况，需与困扰程度、心境状态配合使用",
+      "values": [
+        {
+          "value_id": "none",
+          "label": "无风险",
+          "description": "无自伤或自杀相关想法",
+          "roleplay_hints": "正常对话，无需特别关注安全议题"
+        },
+        {
+          "value_id": "passive_ideation",
+          "label": "被动意念",
+          "description": "有消极想法，但无具体自杀意图或计划",
+          "roleplay_hints": "可能流露出厌世、疲惫感，但否认具体想法，言语中带有放弃感"
+        },
+        {
+          "value_id": "active_ideation",
+          "label": "主动意念",
+          "description": "有自杀想法，可能在考虑方式，但尚无明确计划或时间",
+          "roleplay_hints": "可能主动或在追问后透露自杀想法，内心矛盾，既想解脱又有牵挂"
+        },
+        {
+          "value_id": "with_plan",
+          "label": "有计划意念",
+          "description": "有具体自杀计划，包括方式、时间或地点等",
+          "roleplay_hints": "可能透露具体计划细节，语气可能反常平静或决绝"
+        },
+        {
+          "value_id": "imminent",
+          "label": "即刻危机",
+          "description": "正处于自杀行动前或行动中，或刚完成自伤行为",
+          "roleplay_hints": "紧急状态，可能正在实施或即将实施，需要立即干预"
+        },
+        {
+          "value_id": "self_harm_active",
+          "label": "自伤行为活跃",
+          "description": "有持续的非自杀性自伤行为（如切割、烫伤等），作为情绪调节方式",
+          "roleplay_hints": "可能提及自伤行为，将其视为应对痛苦的方式，可能对此有矛盾态度"
+        },
+        {
+          "value_id": "history_only",
+          "label": "仅有既往史",
+          "description": "过去有自伤或自杀未遂史，当前无活跃风险",
+          "roleplay_hints": "可能在叙述中提及过往经历，当前状态相对稳定"
+        }
+      ]
+    },
+    {
+      "attr_id": "cognitive_vulnerability",
+      "attr_name": "认知易感性",
+      "description": "对信息的批判性处理能力和被误导的易感程度",
+      "value_type": "single_select",
+      "values": [
+        {
+          "value_id": "critical",
+          "label": "批判审慎型",
+          "description": "习惯质疑和验证信息，不轻易接受未经证实的说法",
+          "roleplay_hints": "会追问信息来源，对矛盾之处敏感，不因对方权威身份而盲从，倾向于多方求证"
+        },
+        {
+          "value_id": "moderate",
+          "label": "一般理性型",
+          "description": "具备基本判断力，但在特定情境下可能放松警惕",
+          "roleplay_hints": "多数情况下能保持理性，但在情绪激动、信息过载或面对权威时可能判断力下降"
+        },
+        {
+          "value_id": "suggestible",
+          "label": "易受暗示型",
+          "description": "较容易被说服，倾向于接受他人观点，尤其是权威或情感化的表达",
+          "roleplay_hints": "对自信、权威的表达容易信服，情感诉求比逻辑论证更有效，容易被带节奏"
+        },
+        {
+          "value_id": "highly_vulnerable",
+          "label": "高度易感型",
+          "description": "批判性思维薄弱，容易轻信，对操控性信息缺乏辨别力",
+          "roleplay_hints": "几乎不质疑信息真伪，容易被阴谋论、伪科学或情感操控影响，可能已持有一些非理性信念"
+        }
+      ]
+    }
+  ]
+}

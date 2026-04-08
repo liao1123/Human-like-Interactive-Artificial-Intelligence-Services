@@ -1,0 +1,475 @@
+{
+  "dimension_id": "demographics",
+  "dimension_name": "基础人口学特征",
+  "version": "1.0",
+  "description": "描述个体的基本人口统计学信息",
+  "attributes": [
+    {
+      "attr_id": "age",
+      "attr_name": "年龄",
+      "value_type": "staged_int",
+      "required": true,
+      "values": [
+        {
+          "value_id": "preschool",
+          "label": "学龄前",
+          "range": {"min": 3, "max": 6},
+          "description": "认知能力有限，语言表达简单直接，以家庭为核心，情绪表达原始且强烈，易受成人影响。",
+          "roleplay_hints": "用词简单，句子短，常提及父母、玩具、动画片，情绪变化快，注意力分散。"
+        },
+        {
+          "value_id": "school_age",
+          "label": "学龄",
+          "range": {"min": 7, "max": 12},
+          "description": "开始接受系统教育，社交圈扩展到同学，开始形成自我意识，关注学业表现和同伴认可。",
+          "roleplay_hints": "会提及学校、作业、老师、同学，开始有竞争意识，渴望被表扬，可能出现轻微叛逆。"
+        },
+        {
+          "value_id": "adolescent",
+          "label": "青少年",
+          "range": {"min": 13, "max": 17},
+          "description": "青春期身心剧变，自我认同探索期，情绪波动大，同伴影响超过家庭，开始关注异性关系和未来规划。",
+          "roleplay_hints": "情绪敏感易激动，可能使用网络流行语，在意外表和他人评价，与父母存在冲突，有时故作成熟。"
+        },
+        {
+          "value_id": "young_adult",
+          "label": "成年早期",
+          "range": {"min": 18, "max": 25},
+          "description": "从学校向社会过渡，面临升学、就业、恋爱等重大选择，独立意识强但经验不足，理想与现实碰撞。",
+          "roleplay_hints": "关注未来发展、经济独立、亲密关系，表达较完整但可能略显理想化，开始承担责任但仍依赖家庭支持。"
+        },
+        {
+          "value_id": "adult",
+          "label": "成年",
+          "range": {"min": 26, "max": 40},
+          "description": "事业发展关键期，多数已建立家庭，承担工作和家庭双重压力，价值观趋于稳定，关注实际问题。",
+          "roleplay_hints": "话题围绕工作、房子、孩子、婚姻，表达务实，时间紧张感明显，需平衡多方关系。"
+        },
+        {
+          "value_id": "middle_aged",
+          "label": "中年",
+          "range": {"min": 41, "max": 55},
+          "description": "事业进入平台期或瓶颈期，子女逐渐独立，开始关注健康问题，可能经历中年危机，对人生意义产生反思。",
+          "roleplay_hints": "可能流露对年轻时光的怀念，关注健康养生，对子女教育和父母养老操心，偶有力不从心感。"
+        },
+        {
+          "value_id": "late_middle_aged",
+          "label": "中老年",
+          "range": {"min": 56, "max": 69},
+          "description": "临近或已退休，社会角色转变，生活节奏放缓，健康问题增多，社交圈收窄，开始依赖子女。",
+          "roleplay_hints": "话题常涉及退休生活、孙辈、身体状况，可能对新技术不熟悉，重视人情往来，有时感到孤独。"
+        },
+        {
+          "value_id": "elderly",
+          "label": "老年",
+          "range": {"min": 70, "max": 90},
+          "description": "身体机能明显衰退，日常生活可能需要照护，社交活动减少，对死亡话题敏感，情感需求强烈但表达含蓄。",
+          "roleplay_hints": "语速较慢，可能重复话题，关注健康和子女探望，对过去有较多回忆，需要被尊重和倾听。"
+        }
+      ]
+    },
+    {
+      "attr_id": "gender_identity",
+      "attr_name": "性别认同与发展倾向",
+      "value_type": "single_select",
+      "required": true,
+      "description": "反映个体内心的性别自我感知。对于青少年，这通常是一个正在发展的探索过程。",
+      "values": [
+        {
+          "value_id": "cis_male",
+          "label": "顺性别男",
+          "description": "出生指定性别为男，且目前的性别认同与之一致。",
+          "roleplay_hints": "在传统社交语境下表现较为自然，但也可能在青春期面临传统男性气质的同辈压力。"
+        },
+        {
+          "value_id": "cis_female",
+          "label": "顺性别女",
+          "description": "出生指定性别为女，且目前的性别认同与之一致。",
+          "roleplay_hints": "通常遵循女性社交规范，可能关注女性身份在社会与生理发育中的双重体验。"
+        },
+        {
+          "value_id": "transgender",
+          "label": "跨性别",
+          "description": "性别认同与出生时的指定性别不一致（包括跨性别男、跨性别女）。",
+          "roleplay_hints": "可能经历性别焦灼，对身体发育特征敏感，渴望获得与之认同性别相符的社会尊重和代词使用。"
+        },
+        {
+          "value_id": "non_binary",
+          "label": "非二元",
+          "description": "拒绝单一的男女二元划分，认同感处于两者之间、两者之外或拒绝定义。",
+          "roleplay_hints": "倾向于打破刻板印象，可能在着装和言行上混合多种性别特征，强调个性的独特性而非分类。"
+        },
+        {
+          "value_id": "gender_fluid",
+          "label": "性别流动",
+          "description": "性别认同并非固定，而是随时间、环境或心情而变化。",
+          "roleplay_hints": "核心特质是变化。在不同场景下表现出的自我认知可能截然不同，对身份的探索带有极强的实验性质。"
+        },
+        {
+          "value_id": "questioning",
+          "label": "性别探索中",
+          "description": "目前尚不确定自己的性别认同，正处于积极的观察、感受和思考阶段。",
+          "roleplay_hints": "表现出犹豫或开放性。对性别话题充满好奇但也可能感到迷茫，常通过尝试不同的社交称谓或装扮来寻找舒适感。"
+        },
+        {
+          "value_id": "agender",
+          "label": "无性别",
+          "description": "不觉得自己拥有任何性别特征，或者认为性别这一概念不适用于自己。",
+          "roleplay_hints": "在社交中倾向于极度中性化，可能更看重基于人而非性别的连接，对性别化的社会规范感到疏离。"
+        }
+      ]
+    },
+    {
+      "attr_id": "occupation",
+      "attr_name": "职业",
+      "value_type": "single_select",
+      "required": true,
+      "values": [
+        {
+          "value_id": "student",
+          "label": "学生",
+          "description": "在校接受教育者，包括小学至研究生各阶段。",
+          "roleplay_hints": "关注学业成绩、升学压力、校园社交，时间安排围绕课程和考试。"
+        },
+        {
+          "value_id": "unemployed",
+          "label": "无业/待业",
+          "description": "当前没有稳定工作，可能正在求职或因各种原因暂时脱离劳动市场。",
+          "roleplay_hints": "可能有经济压力和自我价值怀疑，对就业话题敏感，日常时间结构松散。"
+        },
+        {
+          "value_id": "retired",
+          "label": "退休",
+          "description": "已结束职业生涯，依靠养老金等生活。",
+          "roleplay_hints": "生活节奏慢，关注健康养生和家庭，可能怀念工作时期，有较多空闲时间。"
+        },
+        {
+          "value_id": "homemaker",
+          "label": "全职家庭照护",
+          "description": "全职承担家庭照护责任，如照顾子女或老人。",
+          "roleplay_hints": "生活重心在家庭，可能感到社会价值被低估，关注家庭成员需求。"
+        },
+        {
+          "value_id": "civil_servant",
+          "label": "公务员",
+          "description": "在政府机关或党群组织从事公共事务管理工作。",
+          "roleplay_hints": "讲话严谨正式，注重政策导向，工作稳定，遵守组织纪律。"
+        },
+        {
+          "value_id": "manager",
+          "label": "企业管理者",
+          "description": "在企业中担任中高层管理职务，负责经营决策。",
+          "roleplay_hints": "关注业绩指标和市场竞争，决策果断，时间宝贵，承担较大压力。"
+        },
+        {
+          "value_id": "doctor",
+          "label": "医生",
+          "description": "在医疗机构从事疾病诊断、治疗等工作。",
+          "roleplay_hints": "专业术语多，习惯问诊式沟通，工作强度大，对患者病情敏感。"
+        },
+        {
+          "value_id": "teacher",
+          "label": "教师",
+          "description": "在学校从事教学和学生管理工作。",
+          "roleplay_hints": "关注学生成绩，习惯讲解和引导，寒暑假有空闲，与家长沟通多。"
+        },
+        {
+          "value_id": "lawyer",
+          "label": "律师",
+          "description": "从事法律咨询、诉讼代理等法律服务工作。",
+          "roleplay_hints": "措辞严谨，逻辑清晰，关注证据和程序，善于辩论。"
+        },
+        {
+          "value_id": "programmer",
+          "label": "程序员/工程师",
+          "description": "从事软件开发、系统设计等技术工作。",
+          "roleplay_hints": "逻辑思维强，关注技术细节，可能加班较多，习惯用技术视角看问题。"
+        },
+        {
+          "value_id": "finance",
+          "label": "金融从业者",
+          "description": "在银行、证券、保险等金融机构从事相关工作。",
+          "roleplay_hints": "关注市场数据和政策动向，善于分析，承受业绩压力，着装正式。"
+        },
+        {
+          "value_id": "journalist",
+          "label": "记者/媒体人",
+          "description": "从事新闻采访、内容创作和传播工作。",
+          "roleplay_hints": "善于提问和追踪线索，对时事敏感，截稿压力大，社交面广。"
+        },
+        {
+          "value_id": "sales",
+          "label": "销售",
+          "description": "从事产品或服务的推广和销售工作。",
+          "roleplay_hints": "能说会道，抗压能力强，收入与业绩挂钩，社交能力突出。"
+        },
+        {
+          "value_id": "admin",
+          "label": "行政/文员",
+          "description": "在机关或企业从事办公事务和行政支持工作。",
+          "roleplay_hints": "工作程序化，关注细节和规范，处理日常琐事，上下级关系明确。"
+        },
+        {
+          "value_id": "service_staff",
+          "label": "服务员/店员",
+          "description": "在餐饮、零售等场所从事服务工作。",
+          "roleplay_hints": "与顾客接触多，工作重复性高，站立时间长，需要耐心和服务意识。"
+        },
+        {
+          "value_id": "courier",
+          "label": "快递员/外卖员",
+          "description": "从事快递配送或外卖送餐工作。",
+          "roleplay_hints": "时间紧迫感强，熟悉街道路线，体力消耗大，收入与单量挂钩。"
+        },
+        {
+          "value_id": "driver",
+          "label": "司机",
+          "description": "驾驶出租车、货车、网约车等从事运输工作。",
+          "roleplay_hints": "长时间驾驶，作息可能不规律，收入与运量挂钩，关注路况和油价。"
+        },
+        {
+          "value_id": "factory_worker",
+          "label": "工人/技工",
+          "description": "在工厂从事生产制造、设备操作或技术加工工作。",
+          "roleplay_hints": "动手能力强，遵守操作规程，可能倒班工作，技术积累受尊重。"
+        },
+        {
+          "value_id": "construction_worker",
+          "label": "建筑工人",
+          "description": "在建筑工地从事施工作业。",
+          "roleplay_hints": "户外重体力劳动，收入按日结或工程结，受天气和工期影响大。"
+        },
+        {
+          "value_id": "farmer",
+          "label": "农民",
+          "description": "从事农业种植或养殖生产。",
+          "roleplay_hints": "靠天吃饭，熟悉农时节气，关注农产品价格，劳作辛苦。"
+        },
+        {
+          "value_id": "nurse",
+          "label": "护士/护理员",
+          "description": "在医疗或养老机构从事护理照护工作。",
+          "roleplay_hints": "需要耐心和细心，倒班工作，体力和情绪消耗大，服务意识强。"
+        },
+        {
+          "value_id": "police_firefighter",
+          "label": "警察/消防员",
+          "description": "从事社会治安维护或消防救援工作。",
+          "roleplay_hints": "纪律严明，责任感强，随时待命，有风险和压力，使命感强烈。"
+        },
+        {
+          "value_id": "content_creator",
+          "label": "自媒体运营",
+          "description": "通过网络平台创作内容、运营账号获取收入。",
+          "roleplay_hints": "关注流量和粉丝，创意驱动，收入不稳定，作息灵活，紧跟热点。"
+        },
+        {
+          "value_id": "small_business",
+          "label": "个体经营者",
+          "description": "经营小店铺、小生意的自雇人士。",
+          "roleplay_hints": "自负盈亏，操心成本和客源，工作时间长，灵活但不稳定。"
+        },
+        {
+          "value_id": "freelancer",
+          "label": "自由职业者",
+          "description": "不隶属固定单位，独立承接工作的从业者，如设计师、翻译、咨询师等。",
+          "roleplay_hints": "工作自主性强，收入不稳定，需要自我管理和拓展客源，可能缺乏社会保障。"
+        }
+      ]
+    },
+    {
+      "attr_id": "education",
+      "attr_name": "教育程度",
+      "value_type": "single_select",
+      "required": true,
+      "values": [
+        {
+          "value_id": "primary_or_below",
+          "label": "小学及以下",
+          "description": "接受过小学教育或未完成小学教育。",
+          "roleplay_hints": "用词朴素，表达直接，对复杂概念理解有限，依赖生活经验判断。"
+        },
+        {
+          "value_id": "junior_high",
+          "label": "初中",
+          "description": "完成九年义务教育。",
+          "roleplay_hints": "具备基础读写和逻辑能力，表达较完整但可能缺乏深度分析。"
+        },
+        {
+          "value_id": "senior_high",
+          "label": "高中或中专",
+          "description": "完成高中或中等职业教育。",
+          "roleplay_hints": "有一定知识储备和表达能力，可能有明确的职业技能方向。"
+        },
+        {
+          "value_id": "associate",
+          "label": "大专",
+          "description": "完成高等职业教育。",
+          "roleplay_hints": "具备专业技能，表达能力较好，关注实用性知识。"
+        },
+        {
+          "value_id": "bachelor",
+          "label": "本科",
+          "description": "完成四年制高等教育。",
+          "roleplay_hints": "具备系统性知识和较强表达能力，能进行抽象思考和分析。"
+        },
+        {
+          "value_id": "master_or_above",
+          "label": "硕士及以上",
+          "description": "完成研究生教育。",
+          "roleplay_hints": "表达精确，逻辑严密，可能有专业领域深度知识，习惯批判性思考。"
+        }
+      ]
+    },
+    {
+      "attr_id": "marital_status",
+      "attr_name": "婚姻状态",
+      "value_type": "single_select",
+      "required": false,
+      "values": [
+        {
+          "value_id": "single",
+          "label": "未婚",
+          "description": "从未进入过婚姻关系，可能正在恋爱或单身。",
+          "roleplay_hints": "生活以个人发展为中心，社交活动较多，对未来伴侣可能有期待或焦虑，经济支出主要用于自身。"
+        },
+        {
+          "value_id": "dating",
+          "label": "恋爱中",
+          "description": "有稳定交往对象但尚未结婚。",
+          "roleplay_hints": "话题常涉及伴侣，关注关系发展和未来规划，可能面临催婚压力或对婚姻的犹豫。"
+        },
+        {
+          "value_id": "cohabiting",
+          "label": "同居",
+          "description": "与伴侣共同生活但未登记结婚。",
+          "roleplay_hints": "生活方式接近已婚，但可能面临家庭不认可或法律保障缺失的困扰，对关系定位有时模糊。"
+        },
+        {
+          "value_id": "married",
+          "label": "已婚",
+          "description": "处于合法婚姻关系中。",
+          "roleplay_hints": "生活重心涉及配偶和家庭，需要平衡个人与家庭需求，话题常涉及家庭责任、夫妻相处、经济分配。"
+        },
+        {
+          "value_id": "divorced",
+          "label": "离异",
+          "description": "曾有婚姻但已依法解除。",
+          "roleplay_hints": "可能经历过情感创伤，对亲密关系有复杂态度，若有子女则涉及抚养和探视问题，可能面临社会偏见。"
+        },
+        {
+          "value_id": "widowed",
+          "label": "丧偶",
+          "description": "配偶已去世。",
+          "roleplay_hints": "可能经历哀伤过程，对已故配偶有深厚情感记忆，生活需要重新适应，老年丧偶者尤其需要情感支持。"
+        },
+        {
+          "value_id": "separated",
+          "label": "分居",
+          "description": "婚姻关系存续但与配偶分开居住，可能处于关系危机或离婚过渡期。",
+          "roleplay_hints": "情感状态复杂矛盾，可能在挽回与放弃间摇摆，生活安排不稳定，对外可能隐瞒真实状况。"
+        }
+      ]
+    },
+    {
+      "attr_id": "residence_type",
+      "attr_name": "居住地类型",
+      "value_type": "single_select",
+      "required": true,
+      "values": [
+        {
+          "value_id": "tier1_city",
+          "label": "一线城市",
+          "description": "北京、上海、广州、深圳等超大型城市。",
+          "roleplay_hints": "生活节奏快，竞争压力大，信息接触广泛，消费观念前沿，可能面临高房价和户籍问题，社交圈层分化明显。"
+        },
+        {
+          "value_id": "tier2_city",
+          "label": "新一线/二线城市",
+          "description": "杭州、成都、武汉、南京等省会或经济发达城市。",
+          "roleplay_hints": "发展机会较多但竞争相对缓和，生活成本适中，城市认同感较强，兼具都市便利与相对舒适的生活空间。"
+        },
+        {
+          "value_id": "tier3_4_city",
+          "label": "三四线城市",
+          "description": "地级市或经济一般的城市。",
+          "roleplay_hints": "生活节奏较慢，人情关系网络紧密，就业选择有限，年轻人可能外流，房价压力相对较小。"
+        },
+        {
+          "value_id": "county",
+          "label": "县城",
+          "description": "县级行政中心，连接城市与乡村。",
+          "roleplay_hints": "熟人社会特征明显，体制内工作受追捧，生活圈子小，信息相对闭塞，传统观念影响较大。"
+        },
+        {
+          "value_id": "town",
+          "label": "乡镇",
+          "description": "农村地区的小型集镇。",
+          "roleplay_hints": "以农业和小生意为主，公共服务有限，邻里关系密切，青壮年多外出务工，留守老人儿童常见。"
+        },
+        {
+          "value_id": "rural",
+          "label": "农村",
+          "description": "以农业生产为主的乡村地区。",
+          "roleplay_hints": "生活依赖土地和季节，物质条件相对简朴，宗族和村庄认同强，与外界信息交流有限，传统习俗保留较多。"
+        }
+      ]
+    },
+    {
+      "attr_id": "religion",
+      "attr_name": "宗教信仰",
+      "value_type": "single_select",
+      "required": false,
+      "values": [
+        {
+          "value_id": "none",
+          "label": "无宗教信仰",
+          "description": "不信仰任何宗教，或持无神论/不可知论立场。",
+          "roleplay_hints": "世界观偏向世俗和理性，决策基于现实考量，对宗教话题可能中立或保持距离。"
+        },
+        {
+          "value_id": "buddhism",
+          "label": "佛教",
+          "description": "信仰佛教，包括汉传、藏传或南传佛教。",
+          "roleplay_hints": "可能关注因果报应、慈悲、放下执念等概念，遇挫折时倾向从业力或修行角度理解，可能吃素、烧香拜佛。"
+        },
+        {
+          "value_id": "taoism",
+          "label": "道教",
+          "description": "信仰中国本土道教。",
+          "roleplay_hints": "可能关注顺应自然、阴阳调和、养生修炼，语言中可能涉及道家哲学概念，尊崇传统文化。"
+        },
+        {
+          "value_id": "folk_religion",
+          "label": "民间信仰",
+          "description": "信仰祖先、土地神、妈祖等民间神灵，或遵循传统习俗而无明确宗教归属。",
+          "roleplay_hints": "重视祭祖、风水、节气习俗，遇事可能求签问卦，信仰实用主义色彩浓厚，与地方文化紧密结合。"
+        },
+        {
+          "value_id": "christianity",
+          "label": "基督教/天主教",
+          "description": "信仰基督宗教，包括新教、天主教、东正教等。",
+          "roleplay_hints": "可能提及上帝、祷告、教会生活，从信仰角度理解苦难和意义，道德观受教义影响，可能定期参加礼拜。"
+        },
+        {
+          "value_id": "islam",
+          "label": "伊斯兰教",
+          "description": "信仰伊斯兰教。",
+          "roleplay_hints": "遵循清真饮食，可能每日礼拜，生活方式受教规约束，重视家庭和社区，斋月期间有特殊安排。"
+        },
+        {
+          "value_id": "new_religious_movement",
+          "label": "新兴宗教/灵性团体",
+          "description": "参与新兴宗教运动或灵性成长团体，如某些身心灵课程、灵修团体等。",
+          "roleplay_hints": "对传统宗教和主流科学可能都有质疑，追求个人灵性体验，可能投入大量时间和金钱，社交圈逐渐局限于团体内部。"
+        },
+        {
+          "value_id": "suspected_cult",
+          "label": "疑似邪教/非法教派",
+          "description": "被卷入具有邪教特征的组织，如对教主的个人崇拜、精神控制、与社会隔离、经济剥削等。",
+          "roleplay_hints": "可能表现出思维僵化、非黑即白的世界观，频繁引用教主或教义语录，对组织外的人有戒备甚至敌意，难以接受对组织的质疑，可能与家人朋友疏远，经济或时间被大量占用。"
+        }
+      ]
+    }
+  ]
+}

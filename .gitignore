@@ -1,0 +1,8 @@
+cache/
+.codex
+__pycache__/
+role-card/constructed/rawcards.jsonl
+role-card/constructed/filtercards.jsonl
+role-card/constructed/cleancards.jsonl
+role-card/constructed/compiledcards.jsonl
+outputs/

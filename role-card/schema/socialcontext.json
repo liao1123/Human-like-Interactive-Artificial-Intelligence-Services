@@ -1,0 +1,601 @@
+{
+  "dimension_id": "social_situation",
+  "dimension_name": "社会处境",
+  "version": "1.0",
+  "description": "描述个体当前面临的生活压力事件、社会支持网络和经济状况",
+  "attributes": [
+    {
+      "attr_id": "stress_events",
+      "attr_name": "核心压力事件",
+      "description": "个体当前面临的主要生活压力或困境",
+      "value_type": "multi_select",
+      "max_selections": 3,
+      "values": [
+        {
+          "value_id": "none",
+          "label": "无明显压力事件",
+          "description": "当前生活相对平稳，无重大压力源"
+        },
+        {
+          "value_id": "romantic_relationship",
+          "label": "恋爱关系问题",
+          "description": "恋爱关系建立、破裂或情侣间的矛盾冲突",
+          "category": "家庭与生活"
+        },
+        {
+          "value_id": "marriage_issues",
+          "label": "婚姻关系问题",
+          "description": "婚姻建立受阻、夫妻矛盾、离婚等",
+          "category": "家庭与生活"
+        },
+        {
+          "value_id": "family_relationship",
+          "label": "家庭成员关系问题",
+          "description": "与父母、子女、兄弟姐妹等家人的矛盾冲突",
+          "category": "家庭与生活"
+        },
+        {
+          "value_id": "family_life_issues",
+          "label": "家庭生活变动",
+          "description": "新成员加入、家庭结构变化等",
+          "category": "家庭与生活"
+        },
+        {
+          "value_id": "physical_health",
+          "label": "身体健康问题",
+          "description": "自身患有疾病、受伤或身体机能下降",
+          "category": "家庭与生活"
+        },
+        {
+          "value_id": "body_image",
+          "label": "体型外貌焦虑",
+          "description": "对自身外貌、体型的不满和焦虑",
+          "category": "家庭与生活"
+        },
+        {
+          "value_id": "family_health_crisis",
+          "label": "家人健康危机",
+          "description": "家庭成员重病、重伤或去世",
+          "category": "家庭与生活"
+        },
+        {
+          "value_id": "family_mental_health",
+          "label": "家人心理健康问题",
+          "description": "家庭成员存在心理或精神健康问题",
+          "category": "家庭与生活"
+        },
+        {
+          "value_id": "family_work_study_affected",
+          "label": "家人工作学业受阻",
+          "description": "其他家庭成员的工作或学业遇到困难",
+          "category": "家庭与生活"
+        },
+        {
+          "value_id": "family_social_problems",
+          "label": "家人社会问题",
+          "description": "家庭成员涉及社会纠纷或问题",
+          "category": "家庭与生活"
+        },
+        {
+          "value_id": "family_financial_crisis",
+          "label": "家庭经济危机",
+          "description": "家庭面临债务、破产或重大经济损失",
+          "category": "家庭与生活"
+        },
+        {
+          "value_id": "unemployment",
+          "label": "失业或求职困难",
+          "description": "失业、待业或难以找到工作",
+          "category": "工作与学业"
+        },
+        {
+          "value_id": "education_failure",
+          "label": "升学失败",
+          "description": "未能进入理想学校或升学考试失利",
+          "category": "工作与学业"
+        },
+        {
+          "value_id": "new_job_study",
+          "label": "开始新工作或学业",
+          "description": "进入新的工作或学习环境的适应压力",
+          "category": "工作与学业"
+        },
+        {
+          "value_id": "work_study_changes",
+          "label": "工作学业变动",
+          "description": "面临岗位调整、转专业或其他重大变化",
+          "category": "工作与学业"
+        },
+        {
+          "value_id": "retirement",
+          "label": "退休或待分配",
+          "description": "退休适应或等待工作分配",
+          "category": "工作与学业"
+        },
+        {
+          "value_id": "salary_issues",
+          "label": "薪酬待遇问题",
+          "description": "工资、奖金或福利方面的不满",
+          "category": "工作与学业"
+        },
+        {
+          "value_id": "performance_issues",
+          "label": "工作学业表现问题",
+          "description": "绩效不佳、成绩下滑或能力受质疑",
+          "category": "工作与学业"
+        },
+        {
+          "value_id": "dissatisfaction_current_situation",
+          "label": "对现状不满",
+          "description": "对当前工作、学校或专业不满意",
+          "category": "工作与学业"
+        },
+        {
+          "value_id": "motivation_issues",
+          "label": "动力问题",
+          "description": "缺乏学习工作动力或过度投入导致倦怠",
+          "category": "工作与学业"
+        },
+        {
+          "value_id": "lifestyle_changes",
+          "label": "生活方式改变",
+          "description": "因工作学业导致作息、生活习惯被迫改变",
+          "category": "工作与学业"
+        },
+        {
+          "value_id": "colleague_classmate_conflict",
+          "label": "同事同学关系问题",
+          "description": "与同事或同学相处困难、人际冲突",
+          "category": "工作与学业"
+        },
+        {
+          "value_id": "friend_health_issues",
+          "label": "朋友健康问题",
+          "description": "朋友身体或心理健康出现问题",
+          "category": "社会交往"
+        },
+        {
+          "value_id": "friend_relationship_issues",
+          "label": "朋友关系问题",
+          "description": "与朋友发生矛盾、友谊破裂",
+          "category": "社会交往"
+        },
+        {
+          "value_id": "acquaintance_tensions",
+          "label": "泛社交关系紧张",
+          "description": "与普通朋友、亲戚或其他人的关系紧张",
+          "category": "社会交往"
+        },
+        {
+          "value_id": "social_integration",
+          "label": "社会融入困难",
+          "description": "难以融入新的社会环境或群体",
+          "category": "社会交往"
+        },
+        {
+          "value_id": "other_social_problems",
+          "label": "其他社会问题",
+          "description": "其他人际或社会层面的困扰",
+          "category": "社会交往"
+        },
+        {
+          "value_id": "legal_civil_disputes",
+          "label": "民事法律纠纷",
+          "description": "涉及民事诉讼或法律争议",
+          "category": "社会公共事件"
+        },
+        {
+          "value_id": "criminal_involvement",
+          "label": "刑事案件相关",
+          "description": "涉及刑事案件（受害者、证人或嫌疑人）",
+          "category": "社会公共事件"
+        },
+        {
+          "value_id": "public_opinion_events",
+          "label": "舆论事件影响",
+          "description": "卷入网络舆论或公共讨论事件",
+          "category": "社会公共事件"
+        },
+        {
+          "value_id": "social_public_events",
+          "label": "社会公共事件影响",
+          "description": "受自然灾害、公共卫生事件等影响",
+          "category": "社会公共事件"
+        }
+      ]
+    },
+    {
+      "attr_id": "close_friends_count",
+      "attr_name": "亲密朋友数量",
+      "description": "可以得到支持和帮助的亲密朋友数量",
+      "value_type": "single_select",
+      "values": [
+        {
+          "value_id": "none",
+          "label": "一个也没有",
+          "support_level": 0
+        },
+        {
+          "value_id": "few",
+          "label": "1-2个",
+          "support_level": 1
+        },
+        {
+          "value_id": "some",
+          "label": "3-5个",
+          "support_level": 2
+        },
+        {
+          "value_id": "many",
+          "label": "6个或以上",
+          "support_level": 3
+        }
+      ]
+    },
+    {
+      "attr_id": "living_situation",
+      "attr_name": "居住状况",
+      "description": "当前的居住环境和同住人员情况",
+      "value_type": "single_select",
+      "values": [
+        {
+          "value_id": "alone_away",
+          "label": "远离家人且独居",
+          "description": "远离家人，独自居住",
+          "support_level": 0
+        },
+        {
+          "value_id": "unstable_strangers",
+          "label": "居所不稳定与陌生人同住",
+          "description": "住处经常变动，多数时间和陌生人住在一起",
+          "support_level": 1
+        },
+        {
+          "value_id": "with_peers",
+          "label": "与同学同事朋友同住",
+          "description": "和同学、同事或朋友住在一起",
+          "support_level": 2
+        },
+        {
+          "value_id": "with_family",
+          "label": "与家人同住",
+          "description": "和家人住在一起",
+          "support_level": 3
+        }
+      ]
+    },
+    {
+      "attr_id": "neighbor_relationship",
+      "attr_name": "邻里关系",
+      "description": "与邻居的关系和互助程度",
+      "value_type": "single_select",
+      "values": [
+        {
+          "value_id": "indifferent",
+          "label": "点头之交",
+          "description": "相互之间从不关心，只是点头之交",
+          "support_level": 0
+        },
+        {
+          "value_id": "slight_care",
+          "label": "偶尔关心",
+          "description": "遇到困难可能稍微关心",
+          "support_level": 1
+        },
+        {
+          "value_id": "some_care",
+          "label": "部分邻居关心",
+          "description": "有些邻居都很关心您",
+          "support_level": 2
+        },
+        {
+          "value_id": "mostly_care",
+          "label": "多数邻居关心",
+          "description": "大多数邻居都很关心您",
+          "support_level": 3
+        }
+      ]
+    },
+    {
+      "attr_id": "colleague_relationship",
+      "attr_name": "同事/同学关系",
+      "description": "与同事或同学的关系和互助程度",
+      "value_type": "single_select",
+      "values": [
+        {
+          "value_id": "indifferent",
+          "label": "点头之交",
+          "description": "相互之间从不关心，只是点头之交",
+          "support_level": 0
+        },
+        {
+          "value_id": "slight_care",
+          "label": "偶尔关心",
+          "description": "遇到困难可能稍微关心",
+          "support_level": 1
+        },
+        {
+          "value_id": "some_care",
+          "label": "部分同事/同学关心",
+          "description": "有些同事/同学很关心您",
+          "support_level": 2
+        },
+        {
+          "value_id": "mostly_care",
+          "label": "多数同事/同学关心",
+          "description": "大多数同事/同学都很关心您",
+          "support_level": 3
+        }
+      ]
+    },
+    {
+      "attr_id": "family_support",
+      "attr_name": "家庭成员支持",
+      "description": "从不同家庭成员获得的支持和照顾程度",
+      "value_type": "composite",
+      "sub_attributes": [
+        {
+          "sub_attr_id": "spouse_partner",
+          "label": "配偶/恋人",
+          "values": ["none", "minimal", "moderate", "full", "not_applicable"]
+        },
+        {
+          "sub_attr_id": "parents",
+          "label": "父母",
+          "values": ["none", "minimal", "moderate", "full", "not_applicable"]
+        },
+        {
+          "sub_attr_id": "children",
+          "label": "子女",
+          "values": ["none", "minimal", "moderate", "full", "not_applicable"]
+        },
+        {
+          "sub_attr_id": "siblings",
+          "label": "兄弟姐妹",
+          "values": ["none", "minimal", "moderate", "full", "not_applicable"]
+        },
+        {
+          "sub_attr_id": "other_family",
+          "label": "其他家庭成员",
+          "values": ["none", "minimal", "moderate", "full", "not_applicable"]
+        }
+      ],
+      "value_labels": {
+        "none": "无支持",
+        "minimal": "极少支持",
+        "moderate": "一般支持",
+        "full": "全力支持",
+        "not_applicable": "不适用"
+      }
+    },
+    {
+      "attr_id": "practical_support_sources",
+      "attr_name": "实际支持来源",
+      "description": "遇到急难情况时能获得经济支持和实际帮助的来源",
+      "value_type": "multi_select",
+      "values": [
+        {
+          "value_id": "none",
+          "label": "无任何来源"
+        },
+        {
+          "value_id": "spouse",
+          "label": "配偶"
+        },
+        {
+          "value_id": "other_family",
+          "label": "其他家人"
+        },
+        {
+          "value_id": "friends",
+          "label": "朋友"
+        },
+        {
+          "value_id": "relatives",
+          "label": "亲戚"
+        },
+        {
+          "value_id": "colleagues",
+          "label": "同事"
+        },
+        {
+          "value_id": "employer",
+          "label": "工作单位"
+        },
+        {
+          "value_id": "official_org",
+          "label": "官方或半官方组织",
+          "description": "党团工会等"
+        },
+        {
+          "value_id": "unofficial_org",
+          "label": "非官方组织",
+          "description": "宗教团体、社会组织等"
+        },
+        {
+          "value_id": "other",
+          "label": "其他来源"
+        }
+      ]
+    },
+    {
+      "attr_id": "emotional_support_sources",
+      "attr_name": "情感支持来源",
+      "description": "遇到急难情况时能获得安慰和关心的来源",
+      "value_type": "multi_select",
+      "values": [
+        {
+          "value_id": "none",
+          "label": "无任何来源"
+        },
+        {
+          "value_id": "spouse",
+          "label": "配偶"
+        },
+        {
+          "value_id": "other_family",
+          "label": "其他家人"
+        },
+        {
+          "value_id": "friends",
+          "label": "朋友"
+        },
+        {
+          "value_id": "relatives",
+          "label": "亲戚"
+        },
+        {
+          "value_id": "colleagues",
+          "label": "同事"
+        },
+        {
+          "value_id": "employer",
+          "label": "工作单位"
+        },
+        {
+          "value_id": "official_org",
+          "label": "官方或半官方组织"
+        },
+        {
+          "value_id": "unofficial_org",
+          "label": "非官方组织"
+        },
+        {
+          "value_id": "other",
+          "label": "其他来源"
+        }
+      ]
+    },
+    {
+      "attr_id": "confiding_style",
+      "attr_name": "倾诉方式",
+      "description": "遇到烦恼时的倾诉习惯",
+      "value_type": "single_select",
+      "values": [
+        {
+          "value_id": "never",
+          "label": "从不倾诉",
+          "description": "从不向任何人诉述",
+          "openness_level": 0
+        },
+        {
+          "value_id": "intimate_only",
+          "label": "只向极亲密者倾诉",
+          "description": "只向关系极为密切的1-2个人诉述",
+          "openness_level": 1
+        },
+        {
+          "value_id": "passive",
+          "label": "被动倾诉",
+          "description": "如果朋友主动询问会说出来",
+          "openness_level": 2
+        },
+        {
+          "value_id": "active",
+          "label": "主动倾诉",
+          "description": "主动诉述自己的烦恼，以获得支持和理解",
+          "openness_level": 3
+        }
+      ]
+    },
+    {
+      "attr_id": "help_seeking_style",
+      "attr_name": "求助方式",
+      "description": "遇到困难时的求助习惯",
+      "value_type": "single_select",
+      "values": [
+        {
+          "value_id": "self_reliant",
+          "label": "完全自力更生",
+          "description": "只靠自己，不接受别人帮助",
+          "help_seeking_level": 0
+        },
+        {
+          "value_id": "rarely",
+          "label": "很少求助",
+          "description": "很少请求别人帮助",
+          "help_seeking_level": 1
+        },
+        {
+          "value_id": "sometimes",
+          "label": "有时求助",
+          "description": "有时请求别人帮助",
+          "help_seeking_level": 2
+        },
+        {
+          "value_id": "frequently",
+          "label": "经常求助",
+          "description": "有困难时经常向家人、亲友、组织求援",
+          "help_seeking_level": 3
+        }
+      ]
+    },
+    {
+      "attr_id": "group_participation",
+      "attr_name": "团体活动参与",
+      "description": "对组织团体活动的参与程度",
+      "value_type": "single_select",
+      "values": [
+        {
+          "value_id": "never",
+          "label": "从不参加",
+          "participation_level": 0
+        },
+        {
+          "value_id": "occasionally",
+          "label": "偶尔参加",
+          "participation_level": 1
+        },
+        {
+          "value_id": "frequently",
+          "label": "经常参加",
+          "participation_level": 2
+        },
+        {
+          "value_id": "actively",
+          "label": "主动参加并积极活动",
+          "participation_level": 3
+        }
+      ]
+    },
+    {
+      "attr_id": "economic_status",
+      "attr_name": "家庭经济状况",
+      "description": "家庭资产水平分级",
+      "value_type": "single_select",
+      "reference": "2025年7月中国社会科学院与国家统计局《中国家庭财富分级报告》",
+      "values": [
+        {
+          "value_id": "survival",
+          "label": "基础生存型",
+          "description": "家庭资产不足50万元",
+          "population_ratio": "37.6%"
+        },
+        {
+          "value_id": "subsistence",
+          "label": "温饱型",
+          "description": "家庭资产50-200万元",
+          "population_ratio": "33.4%"
+        },
+        {
+          "value_id": "moderate",
+          "label": "小康型",
+          "description": "家庭资产200-800万元",
+          "population_ratio": "22.5%"
+        },
+        {
+          "value_id": "affluent",
+          "label": "富足型",
+          "description": "家庭资产800-3000万元",
+          "population_ratio": "5.98%"
+        },
+        {
+          "value_id": "wealthy",
+          "label": "富裕型",
+          "description": "家庭资产超过3000万元",
+          "population_ratio": "0.52%"
+        }
+      ]
+    }
+  ]
+}
