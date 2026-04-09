@@ -1,2 +1,4 @@
 openai
 tqdm
+transformers 
+torch

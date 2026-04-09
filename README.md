@@ -9,25 +9,78 @@
 
 ## 项目目标
 
-仓库用于评测不同模型在多轮、带角色背景、带压力推进的拟人化互动场景下的表现，重点评测三类风险：
+仓库用于评测不同模型在多轮、带角色背景、带压力推进的拟人化互动场景下的表现，重点评测以下内容：
 
-- C1 基础合规安全
-- C2 危机干预与响应
-- C3 拟人化心理安全
-
-当前文件中共覆盖 11 个细分维度：
-
-- `C1-D1` 政治与社会秩序
-- `C1-D2` 色情暴力
-- `C1-D3` 侵权诽谤
-- `C1-D4` 隐私套取
-- `C2-D1` 自杀自伤意图识别与干预
-- `C2-D2` 极端情绪识别
-- `C2-D3` 财产安全风控
-- `C3-D1` 情感操纵
-- `C3-D2` 认知误导
-- `C3-D3` 沉迷诱导
-- `C3-D4` 情感边界
+<table>
+  <thead>
+    <tr>
+      <th>大类</th>
+      <th>维度</th>
+      <th>风险名称</th>
+      <th>主要评测风险</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td rowspan="4"><code>C1</code><br>基础合规安全</td>
+      <td><code>D1</code></td>
+      <td>政治与社会秩序</td>
+      <td>是否生成危害国安、煽动对立、组织动员、非法宗教宣传、谣言扩散等内容</td>
+    </tr>
+    <tr>
+      <td><code>D2</code></td>
+      <td>色情暴力</td>
+      <td>是否生成露骨色情、未成年人性内容、暴力伤害、赌博技巧、武器或犯罪教程</td>
+    </tr>
+    <tr>
+      <td><code>D3</code></td>
+      <td>侵权诽谤</td>
+      <td>是否生成侮辱攻击、无证据指控、网暴引导、歧视仇恨或名誉侵权内容</td>
+    </tr>
+    <tr>
+      <td><code>D4</code></td>
+      <td>隐私套取</td>
+      <td>是否索取或协助获取账号密码、验证码、隐私信息、涉密资料或社工话术</td>
+    </tr>
+    <tr>
+      <td rowspan="3"><code>C2</code><br>危机干预与响应</td>
+      <td><code>D1</code></td>
+      <td>自杀自伤意图识别与干预</td>
+      <td>是否识别自杀自伤风险，及时安抚、劝阻并提供现实求助路径，而不是提供方法细节</td>
+    </tr>
+    <tr>
+      <td><code>D2</code></td>
+      <td>极端情绪识别</td>
+      <td>是否识别愤怒、失控、冲动报复等高风险情绪，并进行降温而非激化</td>
+    </tr>
+    <tr>
+      <td><code>D3</code></td>
+      <td>财产安全风控</td>
+      <td>是否识别诈骗、勒索、高风险转账等财产风险，并提供止损、报警、申诉等建议</td>
+    </tr>
+    <tr>
+      <td rowspan="4"><code>C3</code><br>拟人化心理安全</td>
+      <td><code>D1</code></td>
+      <td>情感操纵</td>
+      <td>是否使用 PUA、羞辱、冷暴力、威胁离开、制造愧疚等方式操控用户</td>
+    </tr>
+    <tr>
+      <td><code>D2</code></td>
+      <td>认知误导</td>
+      <td>是否虚构权威、作绝对承诺、误导用户做重大决定，或用片面信息引导错误判断</td>
+    </tr>
+    <tr>
+      <td><code>D3</code></td>
+      <td>沉迷诱导</td>
+      <td>是否诱导用户长时间依赖 assistant、削弱现实社交、强化情感绑定和使用沉迷</td>
+    </tr>
+    <tr>
+      <td><code>D4</code></td>
+      <td>情感边界</td>
+      <td>是否通过暧昧承诺、专属陪伴、诱导付费、诱导越界行为等突破安全边界</td>
+    </tr>
+  </tbody>
+</table>
 
 ## 仓库结构
 
@@ -48,77 +101,30 @@
 └── README.md                   项目说明文档
 ```
 
-## 角色卡流水线
+## 实验流程概览
 
-### 1. schema 与约束
+完整流程可以压缩为 7 步：
 
-`role-card/schema/` 下当前包含：
+1. `role-card/schema/`
+   提供风险维度约束，以及人口学、心理状态、社会处境的属性定义。
+2. `role-card/combination.py`
+   读取 schema 与约束，组合生成原始角色卡，输出 `rawcards.jsonl`。
+3. `role-card/filteration.py`
+   用 LLM 做合理性过滤，输出 `filtercards.jsonl` 和 `cleancards.jsonl`。
+4. `role-card/compile.py`
+   把结构化属性编译成自然语言角色卡，输出 `compiledcards.jsonl`。
+5. `role-card/sample.py`
+   按测试点采样，得到主实验输入 `sampledcards.jsonl`。
+6. `get_response.py`
+   基于角色卡生成多轮 user 对话，与待测模型交互，输出 `dialogue_trace.jsonl` 及其 `_2_json.json` 版本。
+7. `evaluate.py`
+   对对话轨迹进行 judge 评分与汇总，输出 `score.jsonl`、`summary.jsonl`、`merge.jsonl` 及其 `_2_json.json` 版本。
 
-- `constraints.json`  定义每个测评维度应优先纳入哪些属性
-- `demographics.json` 定义人口学属性和值域
-- `psychostate.json` 定义心理状态属性和值域
-- `socialcontext.json` 定义社会处境属性和值域
+其中：
 
-### 2. 原始组合生成
-
-`role-card/combination.py` 会：
-
-- 读取 schema 与约束；
-- 按维度组合属性值；
-- 做基础合理性过滤，例如年龄和职业的匹配；
-- 生成原始角色卡数据。
-
-### 3. LLM 合理性过滤
-
-`role-card/filteration.py` 对原始角色卡执行两轮 LLM 审核：
-
-- 第一轮输出分析文本；
-- 第二轮提取 `0/1` 标签；
-- 最终得到完整过滤结果和清洗后的角色卡。
-
-### 4. 角色卡编译
-
-`role-card/compile.py` 会把结构化属性组合转换成自然语言角色卡，字段包括：
-
-- 姓名
-- 基本信息
-- 人物背景
-- 性格特点
-- 当前状态
-- 说话风格
-- 对话动机
-
-### 5. 采样实验卡片
-
-`role-card/sample.py` 默认按每个测试点采样 `100` 条，得到最终实验输入。
-
-## 对话生成与评测流程
-
-### 1. 生成多轮对话
-
-`get_response.py` 的流程：
-
-1. 读取 `sampledcards.jsonl`
-2. 让生成模型先输出多轮 user 对话plan
-3. 按计划逐轮生成 user 侧对话
-4. 与待测模型交互
-5. 保存 `dialogue_trace.jsonl`
-6. 自动额外导出 `dialogue_trace_2_json.json`方便check对话轨迹信息
-
-结果目录不固定，由 `--save_path` 在运行时指定。
-
-### 2. 对话评分
-
-`evaluate.py` 的流程：
-
-1. 从 `--save_path` 指定目录读取 `dialogue_trace.jsonl`
-2. 调用 judge 模型逐条评分
-3. 写出 `score.jsonl`
-4. 汇总得到 `summary.jsonl`
-5. 合并得到 `merge.jsonl`
-6. 自动额外导出 `score_2_json.json`、`summary_2_json.json`、`merge_2_json.json`
-
-同样，评分结果会写入 `--save_path` 指定的目录。
+- 角色卡阶段的核心中间产物位于 `role-card/constructed/`
+- 对话与评测结果默认写入 `outputs/<test_model>/dialogue_turn=<N>/`
+- 如果 `test_model` 名称里包含 `/`，保存目录会自动转成安全文件名
 
 ## 输出文件说明
 
@@ -144,12 +150,7 @@ pip install -r requirements.txt
 ### 2. 从 0 生成原始角色卡
 
 `role-card/combination.py` 没有额外命令行参数，运行后会默认生成：
-
-```text
-role-card/rawcards.jsonl
-```
-
-运行命令：
+`role-card/rawcards.jsonl`
 
 ```bash
 python role-card/combination.py
@@ -200,18 +201,40 @@ role-card/constructed/sampledcards.jsonl
 
 ### 6. 生成多轮对话
 
+这里分两种情况：
+
+#### 情况 A：`test_model` 通过 API 调用
+
 ```bash
 python get_response.py \
   --dialogue_turn 5 \
   --test_model deepseek-v3.2 \
   --generate_model grok-4-1-fast-reasoning \
   --role_card_path role-card/constructed/sampledcards.jsonl \
-  --save_path outputs/deepseek-v3.2/dialogue_turn=5 \
   --api_key YOUR_API_KEY \
   --base_url YOUR_BASE_URL
 ```
 
-### 7. 执行评测
+#### 情况 B：`test_model` 使用本地 `transformers` 模型
+
+这种模式下：
+
+- `generate_model` 仍然通过 API 调用，用来生成多轮 user 对话计划和每轮 user 发言
+
+```bash
+python get_response.py \
+  --dialogue_turn 5 \
+  --test_model Qwen/Qwen2.5-7B-Instruct \
+  --test_model_backend local \
+  --generate_model grok-4-1-fast-reasoning \
+  --role_card_path role-card/constructed/sampledcards.jsonl \
+```
+
+### 7. 评估对话
+
+Tips：
+
+- `judge_model` 选择能力更强、遵循指令更稳定、JSON 输出更可靠的模型，否则评分一致性和可靠性会明显下降
 
 ```bash
 python evaluate.py \
@@ -219,7 +242,6 @@ python evaluate.py \
   --test_model deepseek-v3.2 \
   --judge_model claude-sonnet-4-20250514 \
   --generate_model grok-4-1-fast-reasoning \
-  --save_path outputs/deepseek-v3.2/dialogue_turn=5 \
   --api_key YOUR_API_KEY \
   --base_url YOUR_BASE_URL
 ```

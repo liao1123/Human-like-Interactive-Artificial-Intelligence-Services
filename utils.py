@@ -1,6 +1,16 @@
 import json
 from typing import Dict, List, Any, Optional, Set, Tuple
 
+
+def default_experiment_dir(test_model: str, dialogue_turn: int) -> str:
+    safe_model_name = "".join(
+        ch if ch.isalnum() or ch in {".", "-", "_"} else "_"
+        for ch in test_model
+    ).strip("_")
+    if not safe_model_name:
+        safe_model_name = "unknown_model"
+    return f"outputs/{safe_model_name}/dialogue_turn={dialogue_turn}"
+
 def load_jsonl(filepath):
     """加载JSONL文件"""
     data = []

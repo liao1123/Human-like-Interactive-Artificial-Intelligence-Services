@@ -12,7 +12,7 @@ from pathlib import Path
 from tqdm import tqdm
 from typing import Dict, List, Any, Optional, Set, Tuple
 import random
-from utils import sort_jsonl_by_metadata, load_jsonl, summary_result, merge_score_and_trace
+from utils import default_experiment_dir, sort_jsonl_by_metadata, load_jsonl, summary_result, merge_score_and_trace
 
 from openai import AsyncOpenAI
 
@@ -496,7 +496,6 @@ async def main():
     parser.add_argument("--test_model", type=str, default="deepseek-v3.2", help="test model")
     parser.add_argument("--judge_model", type=str, default="claude-sonnet-4-20250514", help="judge model")
     parser.add_argument("--generate_model", type=str, default="grok-4-1-fast-reasoning", help="生成对话的model")
-    parser.add_argument("--save_path", "--save-path", dest="save_path", type=str, default=None, help="评测结果所在及输出目录")
     parser.add_argument("--api_key", "--api-key", dest="api_key", type=str, required=True, help="调用 judge 模型使用的 API Key")
     parser.add_argument("--base_url", "--base-url", dest="base_url", type=str, required=True, help="调用 judge 模型使用的 Base URL")
     parser.add_argument("--max-concurrent", type=int, default=1100, help="最大并发评估请求数")
@@ -512,7 +511,7 @@ async def main():
     semaphore = asyncio.Semaphore(max(10, args.max_concurrent))
 
     # score、summary save path
-    save_path = args.save_path or f"main_test_model_experiment/{args.test_model}/dialogue_turn={args.dialogue_turn}"
+    save_path = default_experiment_dir(args.test_model, args.dialogue_turn)
     os.makedirs(save_path, exist_ok=True)
     score_save_path = os.path.join(save_path, "score.jsonl")
     summary_save_path = os.path.join(save_path, "summary.jsonl")
